@@ -3,11 +3,7 @@ import {
 } from '@google/genai';
 
 let apiKey = process.env.GEMINI_API_KEY;
-if (import.meta.env.MODE === 'development') {
-  apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-} else {
-  apiKey = process.env.GEMINI_API_KEY;
-}
+console.log("API KEY:", apiKey);
 
 if (!apiKey) {
   throw new Error('GEMINI_API_KEY or VITE_GEMINI_API_KEY is not defined in environment variables');
