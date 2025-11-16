@@ -13,7 +13,7 @@ export default function Question({ question, options, onSubmit, questionNumber, 
 
   return (
     <div className="quiz-container" style={{ display: isVisible ? 'block' : 'none' }}>
-      <p className="question">{question}</p>
+      <p className="question viaoda-libre-bold">{question}</p>
 
       <ol>
         {options.map((option, index) => (
@@ -33,8 +33,6 @@ export default function Question({ question, options, onSubmit, questionNumber, 
           </li>
         ))}
       </ol>
-
-      {selectedQuestion && <p className="selected-note">You selected: {selectedQuestion}</p>}
 
       <div className="actions">
         <button className="submit-btn" onClick={handleSubmit}>Submit</button>

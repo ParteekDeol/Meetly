@@ -22,7 +22,7 @@ html, body { height:100%; margin:0; background:#f6f7f8; color:var(--text); }
   max-width: var(--page-max);
   margin: 28px auto;
   background: var(--bg);
-  border-radius: 8px;
+  border-radius: 20px;
   border: 1px solid rgba(0,0,0,0.15);
   padding: var(--card-pad);
   box-shadow: var(--shadow);

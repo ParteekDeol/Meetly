@@ -17,13 +17,14 @@
 html,body{height:100%; margin:0; background: #f7f7f7; font-family:var(--font-family); color:var(--text-color);}
 
 .card{
-  max-width:1100px;
-  margin:36px auto;
-  background:var(--bg);
-  border:2px solid var(--card-border);
-  border-radius:12px;
-  padding:32px;
+  max-width: 1100px;
+  margin: 36px auto;
+  padding: 32px var(--page-padding);  /* add horizontal padding for smaller screens */
+  background: var(--bg);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
   box-shadow: 0 2px 0 rgba(0,0,0,0.02);
+  width: 100%;  /* ensure it doesn't exceed viewport */
 }
 
 /* Title */
@@ -48,7 +49,7 @@ html,body{height:100%; margin:0; background: #f7f7f7; font-family:var(--font-fam
 .section-title{
   margin:0 0 12px 0;
   font-size:20px;
-  font-weight:500;
+  font-weight:700;
 }
 
 /* Pill list (itinerary & tips) */
@@ -67,10 +68,12 @@ html,body{height:100%; margin:0; background: #f7f7f7; font-family:var(--font-fam
   padding:0 22px;
   border-radius: var(--pill-radius);
   background: var(--accent);
-  color: rgba(255,255,255,0.95);
+  /* color: rgba(255,255,255,0.95); */
   font-weight:500;
   width: 70%;            /* left column pills narrower like mockup */
   max-width:300px;
+  background-color: #ffffff;
+  font-size: large;
 }
 
 /* Right column: hero + thumbnails */

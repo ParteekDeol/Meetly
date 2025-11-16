@@ -1,13 +1,17 @@
 /* Scoped quiz container to avoid affecting other page elements */
 .quiz-container {
-  width: 600px;             /* fixed visual width for the quiz card */
-  max-width: 95%;           /* responsive fallback for small screens */
-  margin: 40px auto;
+  width: 100vw;                      /* span the full viewport width */
+  height: 50vh;
+  max-width: 90%;                   /* override any previous max-width */
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: calc(55% - 50vw);     /* center full-bleed element inside constrained parents */
+  margin-right: calc(50% - 50vw);
   padding: 30px;
   border: 2px solid #e0e0e0;
   border-radius: 12px;
   font-family: Arial, sans-serif;
-  box-sizing: border-box;   /* prevent padding from expanding box unexpectedly */
+  box-sizing: border-box;
   background: #fff;
 }
 
@@ -29,7 +33,7 @@
 /* Each option — visually match your screenshot */
 .quiz-container ol li {
   background: #cfcfcf;         /* neutral gray */
-  padding: 14px 20px;          /* reduced padding so options don't stretch too tall */
+  padding: 20px 20px;          /* reduced padding so options don't stretch too tall */
   margin: 10px 0;              /* vertical spacing between options */
   border-radius: 16px;
   font-size: 1rem;
@@ -64,6 +68,17 @@
 
 /* Submit button itself */
 .quiz-container button.submit-btn {
+  padding: 10px 20px;
+  background: #74c2f8;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 8px rgba(116,194,248,0.18);
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.generate-btn {
   padding: 10px 20px;
   background: #74c2f8;
   border: none;

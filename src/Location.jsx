@@ -8,7 +8,7 @@ export default function Locations({ location, plan }) {
     return (
         <div>
             {/* {!isVisible && <LocationPreview location={location} setIsVisible={setIsVisible}/>} */}
-            <div className="location-container" style={{ display: isVisible ? 'block' : 'none' }}>
+            {/* <div className="location-container" style={{ display: isVisible ? 'block' : 'none' }}>
                 <h1>{plan}</h1>
                 <h2>{location}</h2>
                 <div className="location-itinerary">
@@ -33,28 +33,30 @@ export default function Locations({ location, plan }) {
                         <image className="image" src="../public/images/image-1.jpg"></image>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
               <main className="card">
-                <h1 className="title">Your Plan</h1>
+                <h1 className="title viaoda-libre-bold">{location.toUpperCase()}</h1>
 
                 <div className="content">
                   {/* Left column: itinerary + tips */}
                   <aside className="left">
                     <section className="section">
-                      <h2 className="section-title">Itinerary</h2>
+                      <h2 className="section-title">ITINERARY</h2>
                       <ul className="pill-list">
-                        <li className="pill">Place to visit 1</li>
-                        <li className="pill">Place to visit 2</li>
+                        <li className="pill">📍 Fushimi Inari Taisha</li>
+                        <li className="pill">📍 Arashiyama Bamboo Grove</li>
+                        <li className="pill">📍 Gion District</li>
                       </ul>
                     </section>
 
                     <section className="section">
-                      <h2 className="section-title">Tips</h2>
+                      <h2 className="section-title">TIPS</h2>
                       <ul className="pill-list">
-                        <li className="pill">Tip 1</li>
-                        <li className="pill">Tip 2</li>
+                        <li className="pill">💡 Time Your Visits Strategically</li>
+                        <li className="pill">💡 Explore Local Markets</li>
+                        <li className="pill">💡 Respect Local Customs</li>
                       </ul>
                     </section>
                   </aside>
@@ -64,9 +66,9 @@ export default function Locations({ location, plan }) {
                         <img className="hero placeholder" src="../public/images/image-1.jpg" />
 
                     <div className="thumb-row">
-                      <div className="thumb placeholder" aria-hidden="true"></div>
-                      <div className="thumb placeholder" aria-hidden="true"></div>
-                      <div className="thumb placeholder" aria-hidden="true"></div>
+                      <img className="thumb placeholder" aria-hidden="true" src="../public/images/image-2.jpg" />
+                      <img className="thumb placeholder" aria-hidden="true" src="../public/images/image-3.jpg" />
+                      <img className="thumb placeholder" aria-hidden="true" src="../public/images/image-4.jpg" />
                     </div>
                   </section>
                 </div>

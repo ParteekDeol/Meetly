@@ -5,7 +5,7 @@ import Question from './Question.jsx';
 import GenerateLocations from './request.js';
 import GenerateInfo from './request.js';
 
-export default function Quiz( {setLocation, setPlan} ) {
+export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) {
     const questions = [
         {
             question: "How do you prefer to spend your time when exploring a new place?",
@@ -62,6 +62,10 @@ export default function Quiz( {setLocation, setPlan} ) {
         console.log("Answer submitted:", answer, "for question:", questions[questionNumber - 1].question);
         answers[questionNumber] = {question: questions[questionNumber - 1].question, answer: answer};
         setCurrentQuestion(questionNumber);
+
+        if (questionNumber === questions.length) {
+            generateQuiz();
+        }
     }
 
     function generateQuiz() {
@@ -75,11 +79,12 @@ export default function Quiz( {setLocation, setPlan} ) {
 
         const plan = GenerateInfo(locationValue);
         plan.then((res) => setPlan(res));
+
+        setIsVisible(false);
     }
 
     return (
-        <>
-            <h1>Quiz Component</h1>
+        <div style={{ display: isVisible ? 'block' : 'none' }}>
             {questions.map((q, i) => (
                 <Question key={i}
                     question={q.question}
@@ -89,7 +94,7 @@ export default function Quiz( {setLocation, setPlan} ) {
                     isVisible={currentQuestion + 1 === i + 1}
                 />
             ))}
-            <button onClick={() => generateQuiz()}>Generate</button>
-        </>
+            {/* <button onClick={() => } className="generate-btn">Generate</button> */}
+        </div>
     );
 }
