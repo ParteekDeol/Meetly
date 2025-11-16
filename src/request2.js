@@ -2,7 +2,7 @@ import {
   GoogleGenAI,
 } from '@google/genai';
 
-const API_KEY = "REDACTED";
+const API_KEY = "NA";
 
 async function GenerateInfo(location) {
   const ai = new GoogleGenAI({
@@ -33,11 +33,11 @@ async function GenerateInfo(location) {
     },
   ];
 
-  const response = await ai.models.generateContent({
-    model,
-    config,
-    contents,
-  });
+  // const response = await ai.models.generateContent({
+  //   model,
+  //   config,
+  //   contents,
+  // });
 
   const info = JSON.parse(response.text);
   return info;

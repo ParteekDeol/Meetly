@@ -2,7 +2,7 @@ import {
   GoogleGenAI,
 } from '@google/genai';
 
-const API_KEY = "REDACTED";
+const API_KEY = "NA";
 
 async function GenerateLocations(responses) {
   const ai = new GoogleGenAI({
@@ -33,13 +33,14 @@ async function GenerateLocations(responses) {
     },
   ];
 
-  const response = await ai.models.generateContent({
-    model,
-    config,
-    contents,
-  });
+  // const response = await ai.models.generateContent({
+  //   model,
+  //   config,
+  //   contents,
+  // });
 
-  const locations = JSON.parse(response.text).location;
+  // const locations = JSON.parse(response.text).location;
+  const locations = "Kyoto, Japan";
   return locations;
 }
 
