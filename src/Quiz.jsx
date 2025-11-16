@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import Question from './Question.jsx';
 
-import GenerateLocations from './request.js';
-import GenerateInfo from './request.js';
+import {GenerateLocations, GenerateInfo} from './request.js';
+// import GenerateInfo from './request.js';
 
 export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) {
     const questions = [
@@ -72,16 +72,17 @@ export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) 
     }
 
     function generateQuiz() {
-        const location = GenerateLocations(answers)
-        .then((res) => {
-            setLocation(res);
-            return res;
+        GenerateLocations(answers)
+        .then((locationResponse) => {
+            setLocation(locationResponse);
+            console.log(locationResponse);
+
+            GenerateInfo(locationResponse)
+            .then((planResponse) => {
+                setPlan(planResponse);
+                console.log(planResponse);
+            });
         });
-
-        console.log("Generated location:", location);
-
-        const plan = GenerateInfo(location);
-        plan.then((res) => setPlan(res));
 
         setIsVisible(false);
     }

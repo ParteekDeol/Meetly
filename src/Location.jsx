@@ -16,7 +16,7 @@ export default function Locations({ location, plan }) {
                     <section className="section">
                       <h2 className="section-title">ITINERARY</h2>
                       <ul className="pill-list">
-                        {/* {plan && typeof plan === 'string' ? (
+                        {plan && typeof plan === 'string' ? (
                           plan.split('\n').filter(line => line.trim()).map((item, index) => (
                             <li key={index} className="pill">📍 {item.trim()}</li>
                           ))
@@ -26,12 +26,7 @@ export default function Locations({ location, plan }) {
                             <li className="pill">📍 Arashiyama Bamboo Grove</li>
                             <li className="pill">📍 Gion District</li>
                           </>
-                        )} */}
-                        <>
-                            <li className="pill">📍 Fushimi Inari Taisha</li>
-                            <li className="pill">📍 Arashiyama Bamboo Grove</li>
-                            <li className="pill">📍 Gion District</li>
-                          </>
+                        )}
                       </ul>
                     </section>
 
