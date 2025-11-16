@@ -2,11 +2,18 @@ import {
   GoogleGenAI,
 } from '@google/genai';
 
-const API_KEY = "NA";
-
 async function GenerateLocations(responses) {
+  for (let i = 0; i < responses.length; i++) {
+    responses[i] = `${responses[i].question}: ${responses[i].answer}`;
+  }
+  responses = responses.join("; ");
+
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error('GEMINI_API_KEY is not defined in environment variables');
+  }
   const ai = new GoogleGenAI({
-    apiKey: API_KEY,
+    apiKey: apiKey,
   });
   const config = {
     thinkingConfig: {
@@ -33,15 +40,18 @@ async function GenerateLocations(responses) {
     },
   ];
 
-  // const response = await ai.models.generateContent({
-  //   model,
-  //   config,
-  //   contents,
-  // });
+  const response = await ai.models.generateContent({
+    model,
+    config,
+    contents,
+  });
 
-  // const locations = JSON.parse(response.text).location;
-  const locations = "Kyoto, Japan";
-  return locations;
+  const location = JSON.parse(response.text).location;
+  if (!location) {
+    location = "Kyoto, Japan";
+  }
+
+  return location;
 }
 
 
