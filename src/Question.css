@@ -1,0 +1,99 @@
+/* Scoped quiz container to avoid affecting other page elements */
+.quiz-container {
+  width: 600px;             /* fixed visual width for the quiz card */
+  max-width: 95%;           /* responsive fallback for small screens */
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;   /* prevent padding from expanding box unexpectedly */
+  background: #fff;
+}
+
+/* Question text inside the quiz container */
+.quiz-container > p.question {
+  font-size: 1.8rem;
+  margin: 0 0 22px 0;
+  line-height: 1.2;
+}
+
+/* Remove default ol styling and ensure it does not stretch its parent */
+.quiz-container ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+/* Each option — visually match your screenshot */
+.quiz-container ol li {
+  background: #cfcfcf;         /* neutral gray */
+  padding: 14px 20px;          /* reduced padding so options don't stretch too tall */
+  margin: 10px 0;              /* vertical spacing between options */
+  border-radius: 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.18s ease, transform 0.12s ease;
+  user-select: none;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hover / focus visual affordance */
+.quiz-container ol li:hover,
+.quiz-container ol li:focus {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* Selected state */
+.quiz-container ol li.selected {
+  background: #74c2f8; /* blue */
+  color: #000;
+}
+
+/* Submit button container — keeps layout consistent and prevents floats */
+.quiz-container .actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 18px;
+}
+
+/* Submit button itself */
+.quiz-container button.submit-btn {
+  padding: 10px 20px;
+  background: #74c2f8;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 8px rgba(116,194,248,0.18);
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+/* Button hover */
+.quiz-container button.submit-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* Optional: selected indicator text */
+.quiz-container .selected-note {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Small screens: reduce paddings slightly */
+@media (max-width: 420px) {
+  .quiz-container {
+    padding: 18px;
+  }
+  .quiz-container ol li {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+}
