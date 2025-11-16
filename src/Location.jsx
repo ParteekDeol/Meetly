@@ -6,38 +6,9 @@ export default function Locations({ location, plan }) {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
-        <div>
-            {/* {!isVisible && <LocationPreview location={location} setIsVisible={setIsVisible}/>} */}
-            {/* <div className="location-container" style={{ display: isVisible ? 'block' : 'none' }}>
-                <h1>{plan}</h1>
-                <h2>{location}</h2>
-                <div className="location-itinerary">
-                    <h3>Itinerary:</h3>
-                    <ul>
-                        <li>Day 1: Arrival and city tour</li>
-                        <li>Day 2: Museum visits and local cuisine tasting</li>
-                        <li>Day 3: Outdoor adventure and sightseeing</li>
-                    </ul>
-                </div>
-                <div className="location-tips">
-                    <h3>Travel Tips:</h3>
-                    <ul>
-                        <li>Best time to visit: Spring and Fall</li>
-                        <li>Local customs to be aware of</li>
-                        <li>Packing essentials for the trip</li>
-                    </ul>
-                </div>
-                <div className="main-content">
-                    <div className="main-map"></div>
-                    <div className="image-collection">
-                        <image className="image" src="../public/images/image-1.jpg"></image>
-                    </div>
-                </div>
-            </div> */}
-
-
-              <main className="card">
-                <h1 className="title viaoda-libre-bold">{location.toUpperCase()}</h1>
+        <div className="location-container">
+            <main className="card">
+                <h1 className="title viaoda-libre-bold">{location ? location.toUpperCase() : 'LOCATION'}</h1>
 
                 <div className="content">
                   {/* Left column: itinerary + tips */}
@@ -45,9 +16,17 @@ export default function Locations({ location, plan }) {
                     <section className="section">
                       <h2 className="section-title">ITINERARY</h2>
                       <ul className="pill-list">
-                        <li className="pill">📍 Fushimi Inari Taisha</li>
-                        <li className="pill">📍 Arashiyama Bamboo Grove</li>
-                        <li className="pill">📍 Gion District</li>
+                        {plan && typeof plan === 'string' ? (
+                          plan.split('\n').filter(line => line.trim()).map((item, index) => (
+                            <li key={index} className="pill">📍 {item.trim()}</li>
+                          ))
+                        ) : (
+                          <>
+                            <li className="pill">📍 Fushimi Inari Taisha</li>
+                            <li className="pill">📍 Arashiyama Bamboo Grove</li>
+                            <li className="pill">📍 Gion District</li>
+                          </>
+                        )}
                       </ul>
                     </section>
 
@@ -63,16 +42,16 @@ export default function Locations({ location, plan }) {
 
                   {/* Right column: large image placeholder + three thumbnails */}
                   <section className="right">
-                        <img className="hero placeholder" src="../public/images/image-1.jpg" />
+                    <img className="hero placeholder" src="/images/image-1.jpg" alt={location || "Travel destination"} />
 
                     <div className="thumb-row">
-                      <img className="thumb placeholder" aria-hidden="true" src="../public/images/image-2.jpg" />
-                      <img className="thumb placeholder" aria-hidden="true" src="../public/images/image-3.jpg" />
-                      <img className="thumb placeholder" aria-hidden="true" src="../public/images/image-4.jpg" />
+                      <img className="thumb placeholder" src="/images/image-2.jpg" alt="Destination view 1" />
+                      <img className="thumb placeholder" src="/images/image-3.jpg" alt="Destination view 2" />
+                      <img className="thumb placeholder" src="/images/image-4.jpg" alt="Destination view 3" />
                     </div>
                   </section>
                 </div>
-              </main>
+            </main>
         </div>
     );
 }

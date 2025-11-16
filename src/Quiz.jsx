@@ -89,12 +89,12 @@ export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) 
                 <Question key={i}
                     question={q.question}
                     questionNumber={i + 1}
+                    totalQuestions={questions.length}
                     options={q.options}
                     onSubmit={(answer, questionNumber) => handleSubmit(answer, questionNumber)}
                     isVisible={currentQuestion + 1 === i + 1}
                 />
             ))}
-            {/* <button onClick={() => } className="generate-btn">Generate</button> */}
         </div>
     );
 }
