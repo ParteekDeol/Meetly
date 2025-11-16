@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Question from './Question.jsx';
 
-import {GenerateLocations, GenerateInfo} from './request.js';
+// import {GenerateLocations, GenerateInfo} from './request.js';
 // import GenerateInfo from './request.js';
 
 export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) {
@@ -71,18 +71,38 @@ export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) 
         console.log(questionNumber, questions.length);
     }
 
-    function generateQuiz() {
-        GenerateLocations(answers)
-        .then((locationResponse) => {
-            setLocation(locationResponse);
-            console.log(locationResponse);
+    async function generateQuiz() {
+        const location = await fetch("/api/generate-location", {
+            method: "POST",
+            body: JSON.stringify({ "answers": answers })
+        })
+        .then(async res => {
+            console.log(res.body);
+            const location = res.body.location;
+            setLocation(location);
 
-            GenerateInfo(locationResponse)
-            .then((planResponse) => {
-                setPlan(planResponse);
-                console.log(planResponse);
-            });
-        });
+            console.log({ "location": res.body.location });
+            const plan = await fetch("/api/generate-plan", {
+                method: "POST",
+                body: JSON.stringify({ "location": location })
+            })
+            .then(res => {
+                const plan = res.json();
+                setPlan(plan);
+            })
+        })
+
+        // GenerateLocations(answers)
+        // .then((locationResponse) => {
+        //     setLocation(locationResponse);
+        //     console.log(locationResponse);
+
+        //     GenerateInfo(locationResponse)
+        //     .then((planResponse) => {
+        //         setPlan(planResponse);
+        //         console.log(planResponse);
+        //     });
+        // });
 
         setIsVisible(false);
     }
