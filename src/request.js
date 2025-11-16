@@ -61,7 +61,7 @@ async function GenerateInfo(location) {
       role: 'model',
       parts: [
         {
-          text: 'You are a professional travel advisor and trip planner. Based off of the passed location, generate a list of places the user can visit and tips for visiting the location. Ensure the places are diverse and interesting, and include information about how many people usually visit that location. Make the tips actionable and practical. Always respond with a JSON object in one single line (no line breaks): { "itinerary": [{"location": "location here", "address": "address here", "description: "description here", "average_people": "average people here"}], "tips": ["tip 1", "tip 2"] }.',
+          text: 'You are a professional travel advisor and trip planner. Based off of the passed location, generate a list of places the user can visit and tips for visiting the location. Ensure the places are diverse and interesting, and include information about how many people usually visit that location. Make the tips actionable and practical, but make them really concise (<10 words). Always respond with a JSON object in one single line (no line breaks): { "itinerary": [{"location": "location here", "address": "address here", "description: "description here", "average_people": "average people here"}], "tips": ["tip 1", "tip 2"] }.',
         },
       ],
     },

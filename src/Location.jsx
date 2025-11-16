@@ -16,16 +16,12 @@ export default function Locations({ location, plan }) {
                     <section className="section">
                       <h2 className="section-title">ITINERARY</h2>
                       <ul className="pill-list">
-                        {plan && typeof plan === 'string' ? (
-                          plan.split('\n').filter(line => line.trim()).map((item, index) => (
-                            <li key={index} className="pill">📍 {item.trim()}</li>
+                        {plan && plan.itinerary ? (
+                          plan.itinerary.map((item, index) => (
+                            <li key={index} className="pill">📍 {item.location}</li>
                           ))
                         ) : (
-                          <>
-                            <li className="pill">📍 Fushimi Inari Taisha</li>
-                            <li className="pill">📍 Arashiyama Bamboo Grove</li>
-                            <li className="pill">📍 Gion District</li>
-                          </>
+                          <li className="pill">⚠️ Unable to Load Itinerary</li>
                         )}
                       </ul>
                     </section>
@@ -33,9 +29,13 @@ export default function Locations({ location, plan }) {
                     <section className="section">
                       <h2 className="section-title">TIPS</h2>
                       <ul className="pill-list">
-                        <li className="pill">💡 Time Your Visits Strategically</li>
-                        <li className="pill">💡 Explore Local Markets</li>
-                        <li className="pill">💡 Respect Local Customs</li>
+                        {plan && plan.tips ? (
+                          plan.tips.map((item, index) => (
+                            <li key={index} className="pill">💡 {item}</li>
+                          ))
+                        ) : (
+                          <li className="pill">⚠️ Unable to Load Tips</li>
+                        )}
                       </ul>
                     </section>
                   </aside>
