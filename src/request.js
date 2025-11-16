@@ -2,7 +2,7 @@ import {
   GoogleGenAI,
 } from '@google/genai';
 
-let apiKey = undefined;
+let apiKey = process.env.GEMINI_API_KEY;
 if (import.meta.env.MODE === 'development') {
   apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 } else {
