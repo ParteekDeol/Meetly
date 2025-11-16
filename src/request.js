@@ -2,10 +2,17 @@ import {
   GoogleGenAI,
 } from '@google/genai';
 
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-if (!apiKey) {
-  throw new Error('GEMINI_API_KEY is not defined in environment variables');
+let apiKey = null;
+try {
+  apiKey = process.env.GEMINI_API_KEY;
+} catch (error) {
+  try {
+    apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  } catch (error) {
+    throw new Error('GEMINI_API_KEY or VITE_GEMINI_API_KEY is not defined in environment variables');
+  }
 }
+
 const ai = new GoogleGenAI({
   apiKey: apiKey,
 });
