@@ -1,7 +1,7 @@
 /* Modern Location Page */
 .location-container {
   min-height: 100vh;
-  padding: var(--space-2xl);
+  padding: var(--space-2xl) var(--space-2xl) var(--space-xl) var(--space-2xl);
   background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
   animation: fadeIn 0.5s ease-out;
 }
@@ -195,7 +195,6 @@
   object-fit: cover;
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
-  cursor: pointer;
   border: 3px solid transparent;
 }
 
@@ -358,4 +357,10 @@
 }
 .attribution-box a:hover {
   color: #fff4d6;
+}
+#credits-text-location {
+  color: rgb(160, 120, 50);
+
+  margin-top: 3vh;
+  text-align: center;
 }

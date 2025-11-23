@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LocationImage from './LocationImage.jsx';
 
-import './location.css'
+import './Location.css'
 
 export default function Locations({ location, plan, images }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -55,6 +55,7 @@ export default function Locations({ location, plan, images }) {
                   </section>
                 </div>
             </main>
+          <p id="credits-text-location">Created by Parteek Deol and Kushaagra Patel</p>
         </div>
     );
 }

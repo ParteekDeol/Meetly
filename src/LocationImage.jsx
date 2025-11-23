@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./location.css"
+import "./Location.css"
 
 export default function LocationImage({ index, image, type = "thumb" }) {
     const [showAttributions, setShowAttributions] = useState(false);

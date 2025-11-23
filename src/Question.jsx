@@ -54,6 +54,7 @@ export default function Question({ question, options, onSubmit, questionNumber, 
           {questionNumber === totalQuestions ? 'Finish' : 'Next'}
         </button>
       </div>
+      <p id="credits-text-quiz">Created by Parteek Deol and Kushaagra Patel</p>
     </div>
   );
 }

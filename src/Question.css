@@ -279,3 +279,11 @@
     font-size: 0.95rem;
   }
 }
+#credits-text-quiz {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(160, 120, 50);
+  text-align: center;
+}

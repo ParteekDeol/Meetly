@@ -39,7 +39,7 @@
   backdrop-filter: blur(20px);
   border-radius: var(--radius-2xl);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: var(--space-3xl) var(--space-2xl);
+  padding: var(--space-xl) var(--space-2xl);
   box-shadow: var(--shadow-2xl);
   position: relative;
   z-index: 1;
@@ -155,7 +155,7 @@
 .start-wrap {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
@@ -238,4 +238,10 @@
     width: 100%;
     max-width: 300px;
   }
+}
+#credits-text-landing {
+  bottom: 0%;
+  padding-top: 2%;
+  color: white;
+  text-align: center;
 }

@@ -52,6 +52,7 @@ export default function Landing({ onStart }) {
           </button>
         </div>
       </main>
+      <p id="credits-text-landing">Created by Parteek Deol and Kushaagra Patel</p>
     </div>
   );
 }
