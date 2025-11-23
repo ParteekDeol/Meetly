@@ -5,7 +5,7 @@ import Question from './Question.jsx';
 // import {GenerateLocations, GenerateInfo} from './request.js';
 // import GenerateInfo from './request.js';
 
-export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) {
+export default function Quiz( {setLocation, setPlan, setImages, isVisible, setIsVisible} ) {
     const questions = [
         {
             question: "How do you prefer to spend your time when exploring a new place?",
@@ -84,6 +84,16 @@ export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) 
             .then(async res => {
                 const plan = await res.json();
                 setPlan(plan);
+            })
+
+            const images = await fetch("/api/get-images", {
+                method: "POST",
+                body: JSON.stringify({ "location": location })
+            })
+            .then(async res => {
+                const images = await res.json();
+                console.log(images);
+                setImages(images);
             })
         })
 

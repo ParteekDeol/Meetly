@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import LocationImage from './LocationImage.jsx';
 
 import './location.css'
 
-export default function Locations({ location, plan }) {
+export default function Locations({ location, plan, images }) {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
@@ -42,12 +43,14 @@ export default function Locations({ location, plan }) {
 
                   {/* Right column: large image placeholder + three thumbnails */}
                   <section className="right">
-                    <img className="hero placeholder" src="/images/image-1.jpg" alt={location || "Travel destination"} />
+                    {images && images[0] ? <LocationImage key={0} image={images[0]} type="hero" /> : null}
 
                     <div className="thumb-row">
-                      <img className="thumb placeholder" src="/images/image-2.jpg" alt="Destination view 1" />
-                      <img className="thumb placeholder" src="/images/image-3.jpg" alt="Destination view 2" />
-                      <img className="thumb placeholder" src="/images/image-4.jpg" alt="Destination view 3" />
+                      {images && images.slice(1).map((image, index) => (
+                        <div id={`location-image-${index + 1}`} key={index + 1}>
+                          <LocationImage index={index + 1} image={image} type="thumb" />
+                        </div>
+                      ))}
                     </div>
                   </section>
                 </div>

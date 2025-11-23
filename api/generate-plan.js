@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     try {
         const apiKey = process.env.GEMINI_API_KEY;
         if (!apiKey) {
-            return res.status(500).json({ error: "API key missing" });
+            return res.status(500).json({ error: "Gemini API key missing" });
         }
 
         const ai = new GoogleGenAI({ apiKey });
