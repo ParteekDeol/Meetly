@@ -64,11 +64,8 @@ export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) 
     }, [answers]);
 
     function handleSubmit(answer, questionNumber) {
-        console.log("Answer submitted:", answer, "for question:", questions[questionNumber - 1].question);
         setAnswers([...answers, {question: questions[questionNumber - 1].question, answer: answer}]);
         setCurrentQuestion(questionNumber);
-
-        console.log(questionNumber, questions.length);
     }
 
     async function generateQuiz() {
@@ -77,32 +74,18 @@ export default function Quiz( {setLocation, setPlan, isVisible, setIsVisible} ) 
             body: JSON.stringify({ "answers": answers })
         })
         .then(async res => {
-            console.log(res.body);
-            const location = res.body.location;
+            const location = (await res.json()).location;
             setLocation(location);
 
-            console.log({ "location": res.body.location });
             const plan = await fetch("/api/generate-plan", {
                 method: "POST",
                 body: JSON.stringify({ "location": location })
             })
-            .then(res => {
-                const plan = res.json();
+            .then(async res => {
+                const plan = await res.json();
                 setPlan(plan);
             })
         })
-
-        // GenerateLocations(answers)
-        // .then((locationResponse) => {
-        //     setLocation(locationResponse);
-        //     console.log(locationResponse);
-
-        //     GenerateInfo(locationResponse)
-        //     .then((planResponse) => {
-        //         setPlan(planResponse);
-        //         console.log(planResponse);
-        //     });
-        // });
 
         setIsVisible(false);
     }

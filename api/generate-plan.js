@@ -1,5 +1,4 @@
 import { GoogleGenAI } from "@google/genai";
-import { readStreamToString } from "./utils.js";
 
 export default async function handler(req, res) {
     try {
