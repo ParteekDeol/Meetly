@@ -3,11 +3,9 @@ import LocationImage from './LocationImage.jsx';
 
 import './Location.css'
 
-export default function Locations({ location, plan, images }) {
-    const [isVisible, setIsVisible] = useState(false);
-
+export default function Locations({ location, plan, images, isLocationVisible }) {
     return (
-        <div className="location-container">
+        <div className="location-container" style={{ display: isLocationVisible ? 'block' : 'none' }}>
             <main className="card">
                 <h1 className="title viaoda-libre-bold">{location ? location.toUpperCase() : 'LOCATION'}</h1>
 
@@ -55,7 +53,7 @@ export default function Locations({ location, plan, images }) {
                   </section>
                 </div>
             </main>
-          <p id="credits-text-location">Created by Parteek Deol and Kushaagra Patel</p>
+         <p id="credits-text-location">Created by Parteek Deol and Kushaagra Patel</p> 
         </div>
     );
 }

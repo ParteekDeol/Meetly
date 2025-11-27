@@ -5,7 +5,7 @@ import Question from './Question.jsx';
 // import {GenerateLocations, GenerateInfo} from './request.js';
 // import GenerateInfo from './request.js';
 
-export default function Quiz( {setLocation, setPlan, setImages, isVisible, setIsVisible} ) {
+export default function Quiz({ setLocation, setPlan, setImages, isVisible, setIsVisible, setIsLoadingVisible, setIsLocationVisible, setProgress }) {
     const questions = [
         {
             question: "How do you prefer to spend your time when exploring a new place?",
@@ -63,12 +63,20 @@ export default function Quiz( {setLocation, setPlan, setImages, isVisible, setIs
         }
     }, [answers]);
 
+    function returnError(error) {
+        console.error(`${error.code}: ${error.message}`);
+        setIsVisible(false);
+        setIsLoadingVisible(false);
+        setIsLocationVisible(true);
+    }
+
     function handleSubmit(answer, questionNumber) {
         setAnswers([...answers, {question: questions[questionNumber - 1].question, answer: answer}]);
         setCurrentQuestion(questionNumber);
     }
 
     async function generateQuiz() {
+        setIsLoadingVisible(true);
         const location = await fetch("/api/generate-location", {
             method: "POST",
             body: JSON.stringify({ "answers": answers })
@@ -76,6 +84,7 @@ export default function Quiz( {setLocation, setPlan, setImages, isVisible, setIs
         .then(async res => {
             const location = (await res.json()).location;
             setLocation(location);
+            setProgress(2);
 
             const plan = await fetch("/api/generate-plan", {
                 method: "POST",
@@ -84,6 +93,10 @@ export default function Quiz( {setLocation, setPlan, setImages, isVisible, setIs
             .then(async res => {
                 const plan = await res.json();
                 setPlan(plan);
+                setProgress(3);
+            })
+            .catch(error => {
+                returnError(error);
             })
 
             const images = await fetch("/api/get-images", {
@@ -92,12 +105,19 @@ export default function Quiz( {setLocation, setPlan, setImages, isVisible, setIs
             })
             .then(async res => {
                 const images = await res.json();
-                console.log(images);
                 setImages(images);
+                setProgress(4);
             })
+            .catch(error => {
+                returnError(error);
+            })
+            setIsVisible(false);
+            setIsLoadingVisible(false);
+            setIsLocationVisible(true);
         })
-
-        setIsVisible(false);
+        .catch(error => {
+            returnError(error);
+        })
     }
 
     return (
