@@ -1,16 +1,21 @@
-<img src="./public/logo.ico" width="100px" align="left">
+<div align="center">
+   <img src="./public/logo.ico" width="200px">
 
-# Meetly
-![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?logo=vercel&logoColor=white)
-![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-7.2.2-646CFF?logo=vite&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-LTS-339933?logo=node.js&logoColor=white)
-![Google Gemini](https://img.shields.io/badge/Google%20Gemini-AI-4285F4?logo=google&logoColor=white)
-![Unsplash](https://img.shields.io/badge/Unsplash-API-000000?logo=unsplash&logoColor=white)
+   <h1>Meetly</h1>
+
+   ![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?logo=vercel&logoColor=white)
+   ![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react&logoColor=white)
+   ![Vite](https://img.shields.io/badge/Vite-7.2.2-646CFF?logo=vite&logoColor=white)
+   ![Node.js](https://img.shields.io/badge/Node.js-LTS-339933?logo=node.js&logoColor=white)
+   ![Google Gemini](https://img.shields.io/badge/Google%20Gemini-AI-4285F4?logo=google&logoColor=white)
+   ![Unsplash](https://img.shields.io/badge/Unsplash-API-000000?logo=unsplash&logoColor=white)
+</div>
+
+
 
 Check it out here: [Official Website](https://meetly-web.vercel.app)!
 
-**Connect with the world through personalized travel exploration**
+## **Connect with the world through personalized travel exploration**
 
 Meetly is a web application that connects people from diverse backgrounds through personalized travel exploration and planning. Using intelligent surveys and AI integration, we create the perfect travel itinerary tailored to your unique needs and preferences.
 
@@ -40,8 +45,7 @@ Virtual connections, such as video calls and online chats, can never replace the
 - **Interactive Quiz Interface**: Answer 10 thoughtfully designed questions about your travel preferences
 - **Progress Tracking**: Real-time loading screen with progress indicators during AI processing
 - **Responsive Design**: Modern, user-friendly interface that works across devices
-
-<img src="./public/examples/meetly-questionaire.png">
+  
 <img src="./public/examples/meetly-location.png">
 
 ## 🔄 How It Works
@@ -69,6 +73,8 @@ Virtual connections, such as video calls and online chats, can never replace the
    - Curated itinerary with locations and addresses
    - Practical tips for cultural interaction
    - Stunning photo gallery
+     
+<img src="./public/examples/meetly-questionaire.png">
 
 ## 🛠️ Tech Stack
 
