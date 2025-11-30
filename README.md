@@ -22,15 +22,16 @@ Meetly is a web application that connects people from diverse backgrounds throug
 <img src="./public/examples/meetly-landing.png">
 
 ## Table Of Contents
-1. [🌍 Inspiration](#inspiration)
-2. [✨ Features](#features)
-3. [🔄 How It Works](#how-it-works)
-4. [🛠️ Tech Stack](#tech-stack)
-5. [📋 Prerequisites](#prerequisites)
-6. [🚀 Installation](#installation)
-7. [🖥️ Usage](#usage)
-8. [🐛 Troubleshooting](#troubleshooting)
-9. [🤝 Contributing](#contributing)
+1. [🌍 Inspiration](#-inspiration)
+2. [✨ Features](#-features)
+3. [🔄 How It Works](#-how-it-works)
+4. [🛠️ Tech Stack](#%ef%b8%8f-tech-stack)
+5. [📋 Prerequisites](#-prerequisites)
+6. [🚀 Installation](#-installation)
+7. [🖥️ Usage](#-usage)
+8. [🐛 Troubleshooting](#-troubleshooting)
+9. [🤝 Contributing](#-contributing)
+
 
 ## 🌍 Inspiration
 
